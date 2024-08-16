@@ -1,1 +1,6 @@
-Web API on Node.js, TypeScript, Express.js.
+# Install
+
+git clone
+cd tsRestApi
+npm install
+npm run dev
