@@ -31,6 +31,17 @@ jobs:
         echo "::set-output name=VERSION_NAME::$(node -e 'console.log(require("./package.json").version)')"
       id: package_version
 
-    - name: Echo version
+    - name: Put version to github env
       run: |
-        echo "version_name=${{steps.package_version.outputs.VERSION_NAME}}"
+        echo "version_name=${{steps.package_version.outputs.VERSION_NAME}}" >> $GITHUB_ENV
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: v${{env.version_name}}
+        release_name: v${{env.version_name}}
+        draft: false
+        prerelease: false
