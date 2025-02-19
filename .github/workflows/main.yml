@@ -25,3 +25,7 @@ jobs:
     - name: Build
       run: |
         npm install
+
+    - name: Retrieve version
+      run: |
+        npm -r ./package.json -e "console.log(require('./package.json').version)"
