@@ -17,3 +17,7 @@ npm run dev
 ```
 curl localhost:7000/products
 ```
+
+# Release
+
+![badge](https://github.com/usermisterfive/tsRestApi/actions/workflows/webpack.yml/badge.svg)
