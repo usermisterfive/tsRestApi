@@ -30,3 +30,7 @@ jobs:
       run: |
         echo "::set-output name=VERSION_NAME::$(node -e 'console.log(require("./package.json").version)')"
       id: package_version
+
+    - name: Echo version
+      run: |
+        echo "version_name=${{steps.package_version.outputs.VERSION_NAME}}"
