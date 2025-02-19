@@ -28,5 +28,5 @@ jobs:
 
     - name: Retrieve version
       run: |
-        echo "::set-output name=VERSION_NAME::$(node -r ${{github.workspace}}/package.json -e console.log)"
+        echo "::set-output name=VERSION_NAME::$(node -e 'console.log(require("./package.json").version)')"
       id: package_version
