@@ -20,4 +20,4 @@ curl localhost:7000/products
 
 # Release
 
-![badge](https://github.com/usermisterfive/tsRestApi/actions/workflows/webpack.yml/badge.svg)
+![badge](https://github.com/usermisterfive/tsRestApi/actions/workflows/main.yml/badge.svg)
