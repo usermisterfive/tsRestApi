@@ -6,11 +6,26 @@ cd tsRestApi
 npm install
 ```
 
-# Run
+# Build using webpack
 
 ```
-npm run dev
+npm run build
 ```
+
+# Run
+
+## using ts-node-dev
+
+```
+npm run ts-node-dev
+```
+
+## using webpack bundle.js
+
+```
+npm run node
+```
+
 
 # Test
 
