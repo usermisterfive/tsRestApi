@@ -25,14 +25,22 @@ jobs:
         npm install
         npm run build
 
-    - name: Put version to github env
-      run: echo VERSION_NAME=$(node -e 'console.log(require("./package.json").version)') >> $GITHUB_ENV
+    - name: Put variables to github env
+      run: |
+        echo VERSION_NAME=$(node -e 'console.log(require("./package.json").version)') >> $GITHUB_ENV
+        echo APP_NAME=$(node -e 'console.log(require("./package.json").name)') >> $GITHUB_ENV
 
     - name: Fail if version is empty
       if: ${{ env.VERSION_NAME == '' }}
       run: exit 1
 
+    - name: Fail if app name is empty
+      if: ${{ env.APP_NAME == '' }}
+      run: exit 1
+
     - name: Create Release
-      run: gh release create v${{ env.VERSION_NAME }} dist/bundle.js
+      run: | 
+        cp dist/bundle.js ${{ env.APP_NAME }}-${{ env.VERSION_NAME }}.js
+        gh release create v${{ env.VERSION_NAME }} ${{ env.APP_NAME }}-${{ env.VERSION_NAME }}.js
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
