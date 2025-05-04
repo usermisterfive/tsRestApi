@@ -1,31 +1,17 @@
-# Install
+# Build
 
 ```
-git clone
+git clone https://github.com/usermisterfive/tsRestApi
 cd tsRestApi
 npm install
-```
-
-# Build using webpack
-
-```
 npm run build
 ```
 
 # Run
 
-## using ts-node-dev
-
 ```
-npm run ts-node-dev
+node tsrestapi-1.11.0.js
 ```
-
-## using webpack bundle.js
-
-```
-npm run node
-```
-
 
 # Test
 
